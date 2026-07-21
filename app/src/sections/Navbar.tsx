@@ -31,7 +31,7 @@ export default function Navbar() {
         <a href="#" className="flex items-center gap-1 no-underline">
           <div className="w-[80px] h-[80px] lg:w-[120px] lg:h-[120px] flex-shrink-0 flex items-center justify-center">
             <img
-              src="/images/ihbs-logo.jpg"
+              src="/images/ihbs_logo.png"
               alt="IHBS Logo"
               className="w-full h-full object-contain"
             />
