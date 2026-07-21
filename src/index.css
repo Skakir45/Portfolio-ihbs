@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 224 76% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 213 43% 97%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 213 43% 97%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 213 43% 97%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 224 76% 48%;
+    --radius: 0.625rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ihbs-text font-body antialiased;
+  }
+}
+
+@layer components {
+  .brand-gradient-text {
+    background: linear-gradient(135deg, #0D1B3E 0%, #1A56DB 45%, #93C5FD 75%, #0D1B3E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 1px 2px rgba(26,86,219,0.25));
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-blue text-white px-7 py-3.5 rounded-md font-body text-[13.5px] font-semibold transition-all duration-200;
+  }
+  .btn-primary:hover {
+    @apply bg-blue/90;
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-navy text-navy px-6 py-2.5 rounded-md font-body text-[13px] font-semibold transition-all duration-200;
+  }
+  .btn-outline:hover {
+    @apply bg-navy text-white;
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] font-semibold tracking-[2.5px] uppercase text-blue mb-4;
+  }
+  .section-eyebrow::before {
+    content: '';
+    @apply block w-5 h-0.5 bg-blue;
+  }
+
+  .hero-eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] font-semibold tracking-[2.5px] uppercase text-blue mb-5;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    @apply block w-6 h-0.5 bg-blue;
+  }
+}
+
