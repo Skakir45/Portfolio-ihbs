@@ -4,7 +4,7 @@ const navLinks = [
   { label: 'Home', href: '#', active: true },
   { label: 'About Us', href: '#who-we-are' },
   { label: 'Our Services', href: '#services' },
-  { label: 'Industries', href: '#' },
+  { label: 'Careers', href: 'https://app.notion.com/p/Job-Listing-Template-e32efd052ec2481b99ffed24d9dbc29e'},
   { label: 'Why Us', href: '#why-choose' },
   { label: 'Resources', href: '#' },
   { label: 'Contact Us', href: '#' },
