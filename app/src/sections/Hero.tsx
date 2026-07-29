@@ -275,7 +275,7 @@ export default function Hero() {
           poster="/images/dubai-skyline.jpg"
           className="w-full h-full object-cover"
         >
-          <source src="/videos/skyline-construction.mp4" type="video/mp4" />
+          <source src="/videos/Animation_of_Dubai_tower_to_202607291611.mp4" type="video/mp4" />
         </video>
       </div>
 
@@ -382,6 +382,16 @@ export default function Hero() {
             Trusted by 500+ businesses
           </span>
           <span className="flex-1 h-px max-w-[80px] bg-white/10" />
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="hero-animate opacity-0 absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <span className="text-[9px] font-medium tracking-[3px] uppercase text-white/30">
+            Scroll
+          </span>
+          <div className="w-[18px] h-[30px] rounded-full border-2 border-white/20 flex items-start justify-center p-1">
+            <div className="w-1 h-2 rounded-full bg-white/40 animate-bounce" />
+          </div>
         </div>
       </div>
     </section>

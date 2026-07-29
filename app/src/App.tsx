@@ -4,6 +4,7 @@ import ServicesStrip from './sections/ServicesStrip';
 import WhoWeAre from './sections/WhoWeAre';
 import WhyChoose from './sections/WhyChoose';
 import TrustBar from './sections/TrustBar';
+import ContactCTA from './sections/ContactCTA';
 import Footer from './sections/Footer';
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
       <WhoWeAre />
       <WhyChoose />
       <TrustBar />
+      <ContactCTA />
       <Footer />
     </div>
   );
