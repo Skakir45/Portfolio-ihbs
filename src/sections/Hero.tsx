@@ -273,6 +273,7 @@ export default function Hero() {
           muted
           playsInline
           poster="/images/dubai-skyline.jpg"
+          aria-label="Dubai skyline background video"
           className="w-full h-full object-cover"
         >
           <source src="/videos/skyline-construction.mp4" type="video/mp4" />

@@ -79,6 +79,8 @@ export default function WhoWeAre() {
         <img
           src="/images/office-interior.jpg"
           alt="IHBS Office Interior"
+          width={800}
+          height={600}
           className="w-full h-full object-cover"
         />
         {/* Gradient Overlay */}
