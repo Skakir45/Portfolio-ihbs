@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router';
 import Navbar from './sections/Navbar';
 import Hero from './sections/Hero';
-import ServicesStrip from './sections/ServicesStrip';
+
+import LuxuryServices from './components/LuxuryServices';
 import WhoWeAre from './sections/WhoWeAre';
 import WhyChoose from './sections/WhyChoose';
 import TrustBar from './sections/TrustBar';
 import Footer from './sections/Footer';
 import ServicesPage from './pages/ServicesPage';
+import AboutUsPage from './pages/AboutUsPage';
 import WPSPopup from './components/WPSPopup';
 
 function HomePage() {
@@ -21,7 +23,7 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <ServicesStrip />
+      <LuxuryServices />
       <WhoWeAre />
       <WhyChoose />
       <TrustBar />
@@ -36,6 +38,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutUsPage />} />
         <Route path="/services" element={<ServicesPage />} />
       </Routes>
       <Footer />

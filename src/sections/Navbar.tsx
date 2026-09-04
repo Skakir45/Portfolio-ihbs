@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router';
 
 const navLinks = [
   { label: 'Home', href: '/', isRoute: true },
-  { label: 'About Us', href: '#who-we-are' },
+  { label: 'About Us', href: '/about', isRoute: true },
   { label: 'Our Services', href: '/services', isRoute: true },
   { label: 'Careers', href: 'https://app.notion.com/p/Job-Listing-Template-e32efd052ec2481b99ffed24d9dbc29e' },
   { label: 'Why Us', href: '#why-choose' },

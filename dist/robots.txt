@@ -1,5 +1,28 @@
+# Robots.txt for IHBS – Insight Hub Business Services
+# https://ihbs.ae
+
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
 
-Sitemap: /sitemap.xml
+# Sitemaps
+Sitemap: https://ihbs.ae/sitemap.xml
 
+# Crawl-delay for polite bots
+User-agent: Bingbot
+Crawl-delay: 2
+
+User-agent: Yandex
+Crawl-delay: 2
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /

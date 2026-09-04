@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://ihbs.ae/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ihbs.ae/images/ihbs-logo.jpg</image:loc>
+      <image:title>IHBS – Insight Hub Business Services Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ihbs.ae/images/dubai-skyline.jpg</image:loc>
+      <image:title>Dubai Skyline – PRO Services UAE Background</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ihbs.ae/images/office-interior.jpg</image:loc>
+      <image:title>IHBS Office Interior – Professional PRO Services Team in Dubai</image:title>
+    </image:image>
+  </url>
+
+  <!-- About Us Page -->
+  <url>
+    <loc>https://ihbs.ae/about</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ihbs.ae/images/ihbs-logo.jpg</image:loc>
+      <image:title>IHBS – Insight Hub Business Services Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ihbs.ae/images/office-interior.jpg</image:loc>
+      <image:title>IHBS Office – UAE PRO Services Team</image:title>
+    </image:image>
+  </url>
+
+  <!-- Services Page -->
+  <url>
+    <loc>https://ihbs.ae/services</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ihbs.ae/images/ihbs-logo.jpg</image:loc>
+      <image:title>IHBS – Trade License, Visa &amp; Document Clearing Services</image:title>
+    </image:image>
+  </url>
+
+</urlset>
