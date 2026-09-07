@@ -2,8 +2,8 @@ services:
   - type: web
     name: ihbs-website
     env: static
-    buildCommand: cd app && npm install && npm run build
-    staticPublishPath: ./app/dist
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
     headers:
       - path: /*
         name: Cache-Control
