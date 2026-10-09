@@ -469,7 +469,7 @@ export default function AboutUsPage() {
                 <polyline points="8,3 12,7 8,11" />
               </svg>
             </a>
-            <a href="mailto:info@ihbs.ae" className="btn-outline">
+            <a href="mailto:info@ihbusinessservices.com" className="btn-outline">
               Contact Us
             </a>
           </div>

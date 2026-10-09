@@ -10,6 +10,7 @@ import TrustBar from './sections/TrustBar';
 import Footer from './sections/Footer';
 import ServicesPage from './pages/ServicesPage';
 import AboutUsPage from './pages/AboutUsPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import WPSPopup from './components/WPSPopup';
 
 function HomePage() {
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       </Routes>
       <Footer />
     </div>

@@ -50,4 +50,12 @@
     </image:image>
   </url>
 
+  <!-- Privacy Policy Page -->
+  <url>
+    <loc>https://ihbsproservices.com/privacy-policy</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
