@@ -199,9 +199,9 @@ export default function Footer() {
               Privacy Policy
             </Link>
             <span className="text-white/20">·</span>
-            <a href="#" className="text-[12px] text-white/40 no-underline transition-colors duration-200 hover:text-white/60">
+            <Link to="/terms-of-service" className="text-[12px] text-white/40 no-underline transition-colors duration-200 hover:text-white/60">
               Terms of Service
-            </a>
+            </Link>
             <span className="text-white/20">·</span>
             <span className="text-[12px] text-white/40 tracking-[0.3px]">
               We Register, You Prosper
