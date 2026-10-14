@@ -96,7 +96,7 @@ export default function TrustBar() {
       {/* Header */}
       <h3 className="text-center text-[17px] font-semibold text-white/75 tracking-[0.5px] mb-10 lg:mb-11 flex items-center justify-center gap-3">
         <span className="hidden sm:inline-block w-10 h-px bg-blue/50" />
-        Thousands of Businesses Trust Us
+        UAE BUSINESS SETUP & LICENSING AUTHORITIES
         <span className="hidden sm:inline-block w-10 h-px bg-blue/50" />
       </h3>
 
