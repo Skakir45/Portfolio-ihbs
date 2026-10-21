@@ -284,7 +284,7 @@ const sections = [
         type: 'contact',
         lines: [
           'IHBS – Insight Hub Business Services',
-          'Tanvi Hub Business, Deira, Dubai',
+          'Tanvi Hub Business Center, Deira, Dubai',
           'Email: info@ihbusinessservices.com',
           'Phone: +971 56 179 6442',
           'Website: https://ihbsproservices.com',

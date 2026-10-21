@@ -11,15 +11,16 @@ const footerLinks = {
   ],
   company: [
     { label: 'About Us', href: '/about', isRoute: true },
-    { label: 'Why Choose IHBS', href: '/#why-choose' },
+    { label: 'Why Choose IHBS', href: '/why-us', isRoute: true },
     { label: 'Our Services', href: '/services', isRoute: true },
+    { label: 'Contact Us', href: '/contact', isRoute: true },
     { label: 'Careers', href: 'https://app.notion.com/p/Job-Listing-Template-e32efd052ec2481b99ffed24d9dbc29e' },
   ],
   resources: [
-    { label: 'Blog', href: '#' },
-    { label: 'PRO Guide UAE', href: '#' },
-    { label: 'Visa Requirements', href: '#' },
-    { label: 'FAQs', href: '#' },
+    { label: 'UAE PRO Guide', href: '/resources#guides' },
+    { label: 'Business Checklists', href: '/resources#checklists' },
+    { label: 'Glossary of Terms', href: '/resources#glossary' },
+    { label: 'Official UAE Portals', href: '/resources#authorities' },
   ],
 };
 
@@ -28,7 +29,7 @@ export default function Footer() {
     <footer className="bg-navy text-white">
       {/* ── Main Footer Content ── */}
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-14 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.3fr] gap-10 lg:gap-6">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 no-underline mb-5">
@@ -140,6 +141,25 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Resources Column */}
+          <div>
+            <h4 className="font-heading text-[13px] font-bold tracking-[1px] uppercase text-white mb-5">
+              Resources
+            </h4>
+            <ul className="space-y-3 list-none p-0">
+              {footerLinks.resources.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.href}
+                    className="text-[13px] text-white/50 no-underline transition-colors duration-200 hover:text-blue"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Contact Column */}
           <div>
             <h4 className="font-heading text-[13px] font-bold tracking-[1px] uppercase text-white mb-5">
@@ -152,7 +172,7 @@ export default function Footer() {
                   <circle cx="12" cy="10" r="3" />
                 </svg>
                 <span className="text-[13px] text-white/50 leading-[1.6]">
-                  Business Bay, Dubai, UAE
+                  Tanvi Hub Business Center, Deira, Dubai
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -178,7 +198,7 @@ export default function Footer() {
                   <polyline points="12 6 12 12 16 14" />
                 </svg>
                 <span className="text-[13px] text-white/50 leading-[1.6]">
-                  Sun – Thu: 9:00 AM – 6:00 PM
+                  Mon – Sat: 9:00 AM – 6:00 PM
                 </span>
               </li>
             </ul>

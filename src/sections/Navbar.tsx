@@ -6,9 +6,9 @@ const navLinks = [
   { label: 'About Us', href: '/about', isRoute: true },
   { label: 'Our Services', href: '/services', isRoute: true },
   { label: 'Careers', href: 'https://app.notion.com/p/Job-Listing-Template-e32efd052ec2481b99ffed24d9dbc29e' },
-  { label: 'Why Us', href: '#why-choose' },
-  { label: 'Resources', href: '#' },
-  { label: 'Contact Us', href: '#' },
+  { label: 'Why Us', href: '/why-us', isRoute: true },
+  { label: 'Resources', href: '/resources', isRoute: true },
+  { label: 'Contact Us', href: '/contact', isRoute: true },
 ];
 
 export default function Navbar() {
@@ -24,10 +24,50 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Reset scroll position on route change
+  // Reset scroll position on route change, or jump to the section named in the hash.
+  // The hash is read from window.location so a deep link is honoured even when the
+  // router re-renders without it, and the jump is re-applied after the load event
+  // because ScrollTrigger restores its cached scroll position once the page settles.
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    const hash = window.location.hash.replace(/^#/, '');
+
+    if (!hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    let cancelled = false;
+    let frame = 0;
+    let attempts = 0;
+
+    const jumpToSection = () => {
+      if (cancelled) return;
+      const target = document.getElementById(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+      if (attempts++ < 60) frame = requestAnimationFrame(jumpToSection);
+    };
+    const jumpWhenSettled = () => {
+      frame = requestAnimationFrame(() => {
+        frame = requestAnimationFrame(jumpToSection);
+      });
+    };
+
+    jumpToSection();
+    if (document.readyState === 'complete') {
+      jumpWhenSettled();
+    } else {
+      window.addEventListener('load', jumpWhenSettled, { once: true });
+    }
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+      window.removeEventListener('load', jumpWhenSettled);
+    };
+  }, [location.pathname, location.hash]);
 
   return (
     <nav

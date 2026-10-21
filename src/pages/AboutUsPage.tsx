@@ -184,6 +184,22 @@ export default function AboutUsPage() {
       );
     }
 
+    // Office image
+    const officeVisual = pageRef.current.querySelector('.office-visual');
+    if (officeVisual) {
+      gsap.fromTo(
+        officeVisual,
+        { y: 25, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: officeVisual, start: 'top 85%', once: true },
+        }
+      );
+    }
+
     // Vision & Mission cards
     const vmCards = pageRef.current.querySelectorAll('.vm-card');
     if (vmCards.length) {
@@ -263,15 +279,6 @@ export default function AboutUsPage() {
             For over a decade, IHBS has been the trusted PRO partner for businesses across the UAE —
             simplifying government processes so you can focus on growth.
           </p>
-          {/* SEO-friendly image */}
-          <img
-            src="/images/ihbs-logo.jpg"
-            alt="IHBS – Insight Hub Business Services official logo | PRO services company in Dubai, UAE"
-            width={200}
-            height={60}
-            className="mx-auto mt-8 opacity-80"
-            loading="eager"
-          />
         </div>
       </section>
 
@@ -326,6 +333,37 @@ export default function AboutUsPage() {
               have to.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ── IHBS Office ── */}
+      <section className="pb-16 lg:pb-20 px-6 lg:px-16">
+        <div className="max-w-[1000px] mx-auto office-visual opacity-0">
+          <figure className="relative overflow-hidden rounded-2xl border border-ihbs-border shadow-[0_8px_30px_rgba(0,0,0,0.10)]">
+            <img
+              src="/images/office-interior.jpg"
+              alt="Inside the IHBS office in Deira, Dubai — the PRO services team handling trade licensing, visa processing, and document clearing"
+              width={1200}
+              height={800}
+              loading="lazy"
+              className="w-full h-[240px] sm:h-[320px] lg:h-[440px] object-cover"
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  'linear-gradient(to top, rgba(13,27,62,0.72) 0%, rgba(13,27,62,0.15) 45%, transparent 75%)',
+              }}
+            />
+            <figcaption className="absolute bottom-0 left-0 right-0 px-6 py-5 lg:px-8 lg:py-7">
+              <span className="block text-[11px] font-semibold tracking-[2.5px] uppercase text-blue mb-1.5">
+                Our Office
+              </span>
+              <p className="font-heading text-[15px] lg:text-[19px] font-extrabold text-white tracking-tight">
+                Tanvi Hub Business Center, Deira, Dubai
+              </p>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
