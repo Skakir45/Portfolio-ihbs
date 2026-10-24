@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\"",
+    "build": "vite build && node -e \"const fs=require('fs');const routes=['about','services','why-us','resources','contact','privacy-policy','terms-of-service'];const src=fs.readFileSync('dist/index.html','utf8');const abs=src.split('./assets/').join('/assets/');fs.writeFileSync('dist/404.html',abs);routes.forEach(r=>{fs.mkdirSync('dist/'+r,{recursive:true});fs.writeFileSync('dist/'+r+'/index.html',abs)})\"",
     "preview": "vite preview"
   },
   "keywords": [],
