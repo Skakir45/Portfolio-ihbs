@@ -10,7 +10,7 @@ interface WPSPopupProps {
 export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
-  const [formData, setFormData] = useState({ name: '', mobile: '', email: '' });
+  const [formData, setFormData] = useState({ name: '', mobile: '', email: '', package: '' });
   const [submitted, setSubmitted] = useState(false);
 
   // Lock body scroll when open
@@ -40,7 +40,7 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
       ease: 'power2.in',
       onComplete: () => {
         onClose();
-        setFormData({ name: '', mobile: '', email: '' });
+        setFormData({ name: '', mobile: '', email: '', package: '' });
         setSubmitted(false);
       },
     });
@@ -49,12 +49,28 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: replace with actual API call
-    console.log('WPS Registration Inquiry:', formData);
+    console.log('PRO SERVICES PACKAGES Inquiry:', formData);
     setSubmitted(true);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const openWhatsApp = () => {
+    const { name, mobile, email, package: pkg } = formData;
+    const priceSilver = 'AED 2,499';
+    const priceGold = 'AED 4,399';
+    let price = '';
+    if (pkg === 'silver') {
+      price = priceSilver;
+    } else if (pkg === 'gold') {
+      price = priceGold;
+    }
+    const msg = `Hello IHBS, I would like to get started with your ${pkg || 'PRO'} service. Please share the details. Silver Package: ${priceSilver}, Gold Package: ${priceGold}. Name: ${name}, Mobile: ${mobile}, Email: ${email || 'not provided'}`;
+    const whatsappUrl = `https://wa.me/971561796442?text=${encodeURIComponent(msg)}`;
+    window.open(whatsappUrl, '_blank');
+    // Note: WhatsApp opens in a new tab with the message ready. The visitor must tap Send.
   };
 
   if (!isOpen) return null;
@@ -97,10 +113,10 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
           </div>
 
           <h3 className="font-heading text-[20px] font-bold text-white leading-tight mb-1">
-            WPS Registration
+            PRO SERVICES PACKAGES
           </h3>
           <p className="text-[13px] text-white/60 leading-[1.5]">
-            Register for the UAE's Wage Protection System — fast, compliant, hassle-free.
+            Choose a PRO Services Package to get started.
           </p>
         </div>
 
@@ -123,6 +139,24 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
                   placeholder="e.g. John Smith"
                   className="w-full px-4 py-3 rounded-lg border border-ihbs-border bg-ihbs-bg text-[13.5px] text-ihbs-text placeholder:text-ihbs-muted/60 outline-none transition-colors duration-200 focus:border-blue focus:ring-2 focus:ring-blue/15"
                 />
+              </div>
+
+              {/* Package */}
+              <div>
+                <label htmlFor="wps-package" className="block text-[12px] font-semibold text-navy mb-1.5">
+                  Package
+                </label>
+                <select
+                  id="wps-package"
+                  name="package"
+                  value={formData.package}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-ihbs-border bg-ihbs-bg text-[13.5px] text-ihbs-text placeholder:text-ihbs-muted/60 outline-none transition-colors duration-200 focus:border-blue focus:ring-2 focus:ring-blue/15"
+                >
+                  <option value="">Select Package</option>
+                  <option value="silver">Silver</option>
+                  <option value="gold">Gold</option>
+                </select>
               </div>
 
               {/* Mobile */}
@@ -151,7 +185,6 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
                   id="wps-email"
                   name="email"
                   type="email"
-                  required
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="e.g. john@company.com"
@@ -159,12 +192,13 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
                 />
               </div>
 
-              {/* Submit */}
+              {/* Submit / Enquire on WhatsApp */}
               <button
-                type="submit"
+                type="button"
+                onClick={openWhatsApp}
                 className="w-full bg-blue text-white py-3.5 rounded-lg text-[14px] font-semibold transition-all duration-200 hover:bg-blue/90 hover:-translate-y-0.5 active:translate-y-0 mt-2"
               >
-                Submit Inquiry
+                Enquire on WhatsApp
               </button>
 
               <p className="text-[11px] text-ihbs-muted text-center leading-[1.5]">
@@ -183,7 +217,7 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
                 Thank You!
               </h4>
               <p className="text-[13px] text-ihbs-muted leading-[1.6] mb-5">
-                Your WPS registration inquiry has been received. Our team will contact you shortly.
+                Your PRO Services Packages inquiry has been received. Our team will contact you shortly.
               </p>
               <button
                 onClick={handleClose}

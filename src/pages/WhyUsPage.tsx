@@ -684,6 +684,68 @@ export default function WhyUsPage() {
         </div>
       </section>
 
+      {/* ── SEO Content ── */}
+      <section className="bg-ihbs-bg py-16 lg:py-20 px-6 lg:px-16">
+        <div className="max-w-[900px] mx-auto">
+          <div className="section-eyebrow justify-center mb-4">Trusted PRO Services Partner in the UAE</div>
+          <h2 className="font-heading text-[clamp(22px,3vw,32px)] font-extrabold text-navy mb-6 text-center">
+            Why Businesses Across Dubai & the UAE Choose IHBS
+          </h2>
+          <div className="space-y-5 text-[14.5px] text-ihbs-muted leading-[1.85]">
+            <p>
+              Choosing the right <strong className="text-navy">PRO services provider in the UAE</strong>{' '}
+              is one of the first decisions a business makes after its trade licence is issued — and
+              one of the most consequential. Government transactions in Dubai and across the seven
+              emirates each follow their own route through authorities such as MOHRE, Dubai Economy &
+              Tourism, GDRFA, ICP and MOFA. A missed document or an incorrect submission does not just
+              delay the file; it can block visa issuance, licence renewal and new hires until it is
+              resolved. IHBS exists to make sure that never happens to your business.
+            </p>
+            <p>
+              Our clients come to us for <strong className="text-navy">trade licence</strong> issuance
+              and renewal, <strong className="text-navy">visa processing</strong> for investors,
+              employees and dependents, <strong className="text-navy">Emirates ID</strong> applications,
+              document attestation, WPS payroll registration and ongoing government liaison. What keeps
+              them with us is not any single service — it is the way we deliver it: a written fixed
+              quote before work begins, one named account manager who knows your file, and a committed
+              turnaround of 24–48 working hours on routine transactions.
+            </p>
+            <p>
+              Whether you are a founder setting up in a free zone, an established mainland company
+              managing multiple licences, or an international business hiring your first team in the
+              UAE, you get the same standard of service. That is why more than 500 businesses have
+              trusted IHBS with their government work, and why most of our growth comes from clients
+              recommending us to others.
+            </p>
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Link to="/services" className="btn-primary">
+              Explore Our PRO Services
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="2" y1="7" x2="12" y2="7" />
+                <polyline points="8,3 12,7 8,11" />
+              </svg>
+            </Link>
+            <Link
+              to="/resources"
+              className="inline-flex items-center gap-2 border-2 border-navy/20 text-navy px-6 py-3 rounded-md font-body text-[13px] font-semibold transition-all duration-200 hover:bg-white hover:border-blue/40 no-underline"
+            >
+              Read Free UAE Business Guides
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="cta-section opacity-0 bg-navy py-16 lg:py-20 px-6 lg:px-16">
         <div className="max-w-[700px] mx-auto text-center">

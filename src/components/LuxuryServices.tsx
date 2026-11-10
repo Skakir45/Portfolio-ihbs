@@ -277,6 +277,15 @@ function ServiceIllustration({ serviceId, color }: { serviceId: string; color: s
   return illustrations[serviceId] || null;
 }
 
+/* ─── WhatsApp ───────────────────────────────────────────────────────────── */
+
+const WHATSAPP_NUMBER = '971561796442';
+
+const whatsappLink = (serviceTitle: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    `Hello IHBS, I would like to get started with your ${serviceTitle} service. Please share the details.`
+  )}`;
+
 /* ─── Service Data ────────────────────────────────────────────────────────── */
 
 const services = [
@@ -677,7 +686,10 @@ export default function LuxuryServices() {
                     <p className="detail-animate text-[14px] text-white/60 leading-[1.75] mb-6">{active.desc}</p>
 
                     <div className="detail-animate mb-6">
-                      <button
+                      <a
+                        href={whatsappLink(active.title)}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-[13px] font-semibold transition-all duration-300 hover:-translate-y-0.5"
                         style={{
                           background: `linear-gradient(135deg, ${active.color}, ${active.color}cc)`,
@@ -690,7 +702,7 @@ export default function LuxuryServices() {
                           <line x1="2" y1="7" x2="12" y2="7" />
                           <polyline points="8,3 12,7 8,11" />
                         </svg>
-                      </button>
+                      </a>
                     </div>
 
                     <p className="detail-animate text-[11px] font-semibold tracking-[2px] uppercase text-white/40 mb-3">

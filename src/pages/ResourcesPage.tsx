@@ -7,6 +7,9 @@ import { Link } from 'react-router';
 gsap.registerPlugin(ScrollTrigger);
 
 const CONTACT_EMAIL = 'info@ihbusinessservices.com';
+const WHATSAPP_URL = `https://wa.me/971561796442?text=${encodeURIComponent(
+  'Hello IHBS, I have a question about the resources on your website.'
+)}`;
 
 const featuredGuides = [
   {
@@ -673,6 +676,52 @@ export default function ResourcesPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SEO Content ── */}
+      <section className="bg-ihbs-bg py-16 lg:py-20 px-6 lg:px-16">
+        <div className="max-w-[900px] mx-auto">
+          <div className="section-eyebrow justify-center mb-4">UAE Business Knowledge Hub</div>
+          <h2 className="font-heading text-[clamp(22px,3vw,32px)] font-extrabold text-navy mb-6 text-center">
+            Free Guides on PRO Services, Company Setup & Compliance in the UAE
+          </h2>
+          <div className="space-y-5 text-[14.5px] text-ihbs-muted leading-[1.85]">
+            <p>
+              Starting and running a business in the UAE means dealing with a moving set of rules.
+              <strong className="text-navy"> Trade licence</strong> requirements differ between
+              mainland, free zone and offshore jurisdictions. <strong className="text-navy">Visa
+              quotas</strong> and establishment cards control how quickly you can hire. Attestation
+              chains, WPS payroll deadlines and Emirates ID renewals each carry their own paperwork —
+              and their own penalties when missed. These resources collect what our PRO team explains
+              to clients every week, in writing, free of charge.
+            </p>
+            <p>
+              Use the guides above to understand your options before you commit: how to choose between
+              a mainland licence and a free zone licence in Dubai, how UAE visa quotas actually work,
+              what trade licence renewal involves, how document attestation runs from the country of
+              origin through MOFA, and what corporate banks look for when opening a company account.
+              The checklists cover the exact documents we assemble for clients, and the glossary
+              explains the acronyms — MOHRE, GDRFA, ICP, WPS, Ejari, NOC — that you will encounter
+              throughout the process.
+            </p>
+            <p>
+              When you are ready to act on what you have read, our team handles the entire process for
+              you — <Link to="/services" className="text-blue no-underline hover:underline">trade
+              licence issuance and renewal, visa processing, document clearing, Emirates ID and
+              government liaison</Link> across all seven emirates. Ask a question on{' '}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue no-underline hover:underline"
+              >
+                WhatsApp
+              </a>{' '}
+              or <Link to="/contact" className="text-blue no-underline hover:underline">send us an
+              enquiry</Link> — the first consultation and quote are free.
+            </p>
           </div>
         </div>
       </section>
