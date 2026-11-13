@@ -17,11 +17,34 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import WPSPopup from './components/WPSPopup';
 
+const POPUP_SESSION_KEY = 'ihbs-pro-popup-shown';
+
+function hasSeenPopup() {
+  try {
+    return sessionStorage.getItem(POPUP_SESSION_KEY) === '1';
+  } catch {
+    // sessionStorage can throw (private mode, blocked storage) — show the popup anyway
+    return false;
+  }
+}
+
+function markPopupSeen() {
+  try {
+    sessionStorage.setItem(POPUP_SESSION_KEY, '1');
+  } catch {
+    /* ignore — popup still works without storage */
+  }
+}
+
 function HomePage() {
   const [showWPS, setShowWPS] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowWPS(true), 3000);
+    if (hasSeenPopup()) return;
+    const timer = setTimeout(() => {
+      markPopupSeen();
+      setShowWPS(true);
+    }, 6000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -32,7 +55,13 @@ function HomePage() {
       <WhoWeAre />
       <WhyChoose />
       <TrustBar />
-      <WPSPopup isOpen={showWPS} onClose={() => setShowWPS(false)} />
+      <WPSPopup
+        isOpen={showWPS}
+        onClose={() => {
+          markPopupSeen();
+          setShowWPS(false);
+        }}
+      />
     </>
   );
 }
