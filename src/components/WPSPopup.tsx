@@ -74,8 +74,8 @@ function CrownIcon({ variant }: { variant: PackageKey }) {
         <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
           {variant === 'gold' ? (
             <>
-              <stop offset="0%" stopColor="#F5D77A" />
-              <stop offset="100%" stopColor="#D4AF37" />
+              <stop offset="0%" stopColor="#93C5FD" />
+              <stop offset="100%" stopColor="#3B82F6" />
             </>
           ) : (
             <>
@@ -102,8 +102,8 @@ function CrownIcon({ variant }: { variant: PackageKey }) {
   );
 }
 
-const goldText = {
-  backgroundImage: 'linear-gradient(135deg, #F5D77A 0%, #D4AF37 60%, #B8912B 100%)',
+const accentText = {
+  backgroundImage: 'linear-gradient(135deg, #93C5FD 0%, #3B82F6 60%, #2563EB 100%)',
   WebkitBackgroundClip: 'text',
   backgroundClip: 'text',
   color: 'transparent',
@@ -252,7 +252,7 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center overflow-y-auto overscroll-contain bg-[#071A33]/75 backdrop-blur-[10px] p-0 sm:p-6"
+      className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center overflow-y-auto overscroll-contain bg-[#071528]/[0.72] backdrop-blur-[10px] p-0 sm:p-6"
       onClick={(e) => {
         if (e.target === overlayRef.current) handleClose();
       }}
@@ -262,15 +262,23 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="pro-popup-title"
-        className="relative w-full min-w-0 max-w-[1040px] max-h-[94dvh] sm:max-h-[calc(100dvh-3rem)] overflow-y-auto overscroll-contain rounded-t-[24px] sm:rounded-[24px] border border-[#D4AF37]/30 bg-[#071A33]/85 backdrop-blur-[20px] shadow-[0_30px_90px_-20px_rgba(0,0,0,0.75),0_0_0_1px_rgba(255,255,255,0.05)_inset]"
+        className="relative w-full min-w-0 max-w-[1000px] max-h-[94dvh] sm:max-h-[calc(100dvh-3rem)] overflow-y-auto overscroll-contain rounded-t-[24px] sm:rounded-[24px] border border-white/15 bg-[#0B1836]/[0.97] backdrop-blur-[20px] shadow-[0_30px_90px_-20px_rgba(0,0,0,0.8),0_0_90px_-40px_rgba(59,130,246,0.55),0_0_0_1px_rgba(255,255,255,0.06)_inset]"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
-        {/* Gold edge highlight */}
+        {/* Navy glass sheen */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(150deg, rgba(59,130,246,0.14) 0%, rgba(13,27,62,0.05) 45%, rgba(0,0,0,0.12) 100%)',
+          }}
+        />
+        {/* Top light reflection */}
         <div
           className="pointer-events-none absolute inset-x-0 top-0 h-px"
           style={{
             backgroundImage:
-              'linear-gradient(90deg, transparent, rgba(245,215,122,0.8), transparent)',
+              'linear-gradient(90deg, transparent, rgba(147,197,253,0.85), transparent)',
           }}
         />
 
@@ -279,7 +287,7 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
           ref={closeBtnRef}
           onClick={handleClose}
           aria-label="Close popup"
-          className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/80 backdrop-blur-md transition-all duration-200 hover:border-[#D4AF37]/60 hover:bg-[#D4AF37]/20 hover:text-[#F5D77A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] sm:right-4 sm:top-4"
+          className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/80 backdrop-blur-md transition-all duration-200 hover:border-[#3B82F6]/70 hover:bg-[#3B82F6]/25 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] sm:right-4 sm:top-4"
         >
           <svg viewBox="0 0 14 14" className="h-3.5 w-3.5 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
             <line x1="2" y1="2" x2="12" y2="12" />
@@ -287,40 +295,20 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
           </svg>
         </button>
 
-        <div className="grid min-w-0 grid-cols-1 lg:grid-cols-[1.25fr_1fr]">
+        <div className="grid min-w-0 grid-cols-1 lg:grid-cols-[1.3fr_1fr]">
           {/* ── Left: content ─────────────────────────────────────────────── */}
-          <div className="min-w-0 px-5 pb-6 pt-7 sm:px-8 sm:pb-8 sm:pt-8 lg:px-9">
-            {/* Header */}
-            <div className="popup-reveal flex items-center gap-3 pr-9 sm:pr-0">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] border border-[#D4AF37]/40 bg-white shadow-[0_6px_18px_-6px_rgba(0,0,0,0.6)]">
-                <img
-                  src="/images/ihbs_logo.png"
-                  alt="IHBS logo"
-                  width="40"
-                  height="40"
-                  className="h-9 w-9 object-contain"
-                  loading="eager"
-                  decoding="async"
-                />
-              </span>
-              <div className="min-w-0">
-                <p className="font-heading text-[13px] font-semibold leading-tight tracking-[0.04em] text-white">
-                  IHBS – Insight Hub Business Services
-                </p>
-                <p className="mt-0.5 text-[11px] tracking-[0.16em] text-[#D4AF37]/90">
-                  &ldquo;We Register, You Prosper.&rdquo;
-                </p>
-              </div>
-            </div>
-
+          <div className="min-w-0 px-5 pb-6 pt-7 sm:px-8 sm:pb-8 sm:pt-9 lg:px-10">
             {/* Headline */}
-            <div className="popup-reveal mt-6">
+            <div className="popup-reveal pr-10 sm:pr-12">
+              <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.28em] text-[#93C5FD]">
+                We Register, You Prosper.
+              </p>
               <h2
                 id="pro-popup-title"
-                className="font-heading text-[27px] font-bold leading-[1.06] tracking-[-0.02em] text-white sm:text-[34px] lg:text-[36px]"
+                className="mt-2.5 font-heading text-[27px] font-bold leading-[1.06] tracking-[-0.02em] text-white sm:text-[34px] lg:text-[36px]"
               >
                 PRO SERVICE{' '}
-                <span style={goldText} className="whitespace-nowrap">
+                <span style={accentText} className="whitespace-nowrap">
                   PACKAGES
                 </span>
               </h2>
@@ -330,9 +318,9 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
             </div>
 
             {/* Package cards */}
-            <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5">
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5">
               {packages.map((pkg) => {
-                const isGold = pkg.key === 'gold';
+                const isFeatured = pkg.key === 'gold';
                 const isSelected = selected === pkg.key;
                 return (
                   <button
@@ -340,25 +328,28 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
                     type="button"
                     onClick={() => setSelected(isSelected ? null : pkg.key)}
                     aria-pressed={isSelected}
-                    className={`popup-reveal group relative flex flex-col items-start overflow-hidden rounded-[20px] border p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_-16px_rgba(212,175,55,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] sm:p-5 ${
+                    className={`popup-reveal group relative flex flex-col items-start overflow-hidden rounded-[20px] border p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_-16px_rgba(59,130,246,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] sm:p-5 ${
                       isSelected
-                        ? 'border-[#D4AF37] shadow-[0_0_0_1px_rgba(212,175,55,0.85),0_20px_50px_-18px_rgba(212,175,55,0.6)]'
-                        : isGold
-                          ? 'border-[#D4AF37]/35'
+                        ? 'border-[#3B82F6] shadow-[0_0_0_1px_rgba(59,130,246,0.9),0_22px_55px_-18px_rgba(59,130,246,0.65)]'
+                        : isFeatured
+                          ? 'border-[#3B82F6]/40'
                           : 'border-white/15'
                     }`}
                     style={{
-                      backgroundImage: isGold
-                        ? 'linear-gradient(160deg, rgba(212,175,55,0.16) 0%, rgba(255,255,255,0.05) 55%, rgba(255,255,255,0.03) 100%)'
-                        : 'linear-gradient(160deg, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.04) 100%)',
-                      boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.14)',
+                      backgroundImage: isFeatured
+                        ? 'linear-gradient(160deg, rgba(59,130,246,0.22) 0%, rgba(255,255,255,0.06) 55%, rgba(255,255,255,0.03) 100%)'
+                        : 'linear-gradient(160deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.04) 100%)',
+                      boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.16)',
                     }}
                   >
-                    <div className="mb-2 flex w-full items-start justify-between">
+                    {/* Light reflection sweep */}
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_-10%,rgba(255,255,255,0.16),transparent_60%)]" />
+
+                    <div className="relative mb-2 flex w-full items-start justify-between">
                       <CrownIcon variant={pkg.key} />
                       {isSelected && (
-                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#D4AF37]">
-                          <svg viewBox="0 0 24 24" className="h-3 w-3 stroke-[#071A33] fill-none" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#3B82F6]">
+                          <svg viewBox="0 0 24 24" className="h-3 w-3 stroke-white fill-none" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                             <polyline points="5 13 10 18 19 7" />
                           </svg>
                         </span>
@@ -366,24 +357,24 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
                     </div>
 
                     <span
-                      className="font-heading text-[11.5px] font-semibold tracking-[0.22em]"
-                      style={{ color: isGold ? '#F5D77A' : '#D8DEE8' }}
+                      className="relative font-heading text-[11.5px] font-semibold tracking-[0.22em]"
+                      style={{ color: isFeatured ? '#93C5FD' : '#D8DEE8' }}
                     >
                       {pkg.name}
                     </span>
 
                     <span
-                      className="mt-1 font-heading text-[25px] font-bold leading-none sm:text-[27px]"
+                      className="relative mt-1 font-heading text-[25px] font-bold leading-none sm:text-[27px]"
                       style={
-                        isGold
-                          ? goldText
+                        isFeatured
+                          ? accentText
                           : { color: '#F4F6FA', textShadow: '0 1px 0 rgba(255,255,255,0.18)' }
                       }
                     >
                       {pkg.price}
                     </span>
 
-                    <span className="mt-1.5 text-[12px] text-white/60">{pkg.note}</span>
+                    <span className="relative mt-1.5 text-[12px] text-white/60">{pkg.note}</span>
                   </button>
                 );
               })}
@@ -395,7 +386,7 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
                 <div key={service.label} className="flex min-w-0 items-center gap-2">
                   <svg
                     viewBox="0 0 24 24"
-                    className="h-[18px] w-[18px] shrink-0 stroke-[#D4AF37] fill-none"
+                    className="h-[18px] w-[18px] shrink-0 stroke-[#60A5FA] fill-none"
                     strokeWidth="1.4"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -415,10 +406,11 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="popup-reveal group mt-6 flex w-full items-center justify-center gap-2.5 rounded-[14px] px-5 py-3.5 font-heading text-[14px] font-bold text-[#071A33] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(212,175,55,0.65)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5D77A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071A33] active:translate-y-0"
+              className="popup-reveal group mt-6 flex w-full items-center justify-center gap-2.5 rounded-[14px] px-5 py-3.5 font-heading text-[14px] font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_42px_-12px_rgba(59,130,246,0.75)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#93C5FD] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D1B3E] active:translate-y-0"
               style={{
-                backgroundImage: 'linear-gradient(135deg, #F5D77A 0%, #D4AF37 55%, #C39B2B 100%)',
-                boxShadow: '0 10px 30px -12px rgba(212,175,55,0.6), inset 0 1px 0 rgba(255,255,255,0.55)',
+                backgroundImage: 'linear-gradient(135deg, #3B82F6 0%, #2563EB 60%, #1D4ED8 100%)',
+                boxShadow:
+                  '0 10px 30px -12px rgba(37,99,235,0.7), inset 0 1px 0 rgba(255,255,255,0.35)',
               }}
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
@@ -439,7 +431,7 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
 
           {/* ── Right: Dubai skyline (desktop only) ───────────────────────── */}
           <div className="relative hidden p-3 lg:block">
-            <div className="relative h-full min-h-[520px] overflow-hidden rounded-tr-[26px] rounded-bl-[26px] rounded-tl-[130px] rounded-br-[130px]">
+            <div className="relative h-full min-h-[460px] overflow-hidden rounded-tr-[26px] rounded-bl-[26px] rounded-tl-[130px] rounded-br-[130px]">
               <img
                 src="/images/dubai-skyline.jpg"
                 alt="Dubai skyline with the Burj Khalifa"
@@ -454,15 +446,15 @@ export default function WPSPopup({ isOpen, onClose }: WPSPopupProps) {
                 className="absolute inset-0"
                 style={{
                   backgroundImage:
-                    'linear-gradient(180deg, rgba(7,26,51,0.55) 0%, rgba(7,26,51,0.12) 45%, rgba(7,26,51,0.85) 100%)',
+                    'linear-gradient(180deg, rgba(13,27,62,0.6) 0%, rgba(13,27,62,0.12) 45%, rgba(13,27,62,0.9) 100%)',
                 }}
               />
-              {/* Gold curved frame */}
-              <div className="pointer-events-none absolute inset-3 rounded-tr-[20px] rounded-bl-[20px] rounded-tl-[122px] rounded-br-[122px] border border-[#D4AF37]/55" />
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(245,215,122,0.18),transparent_55%)]" />
+              {/* Blue glass frame */}
+              <div className="pointer-events-none absolute inset-3 rounded-tr-[20px] rounded-bl-[20px] rounded-tl-[122px] rounded-br-[122px] border border-[#60A5FA]/45" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(147,197,253,0.2),transparent_55%)]" />
 
               <div className="absolute inset-x-0 bottom-0 p-6">
-                <p className="font-heading text-[10px] font-semibold tracking-[0.26em] text-[#F5D77A]">
+                <p className="font-heading text-[10px] font-semibold tracking-[0.26em] text-[#93C5FD]">
                   DUBAI &middot; UAE
                 </p>
                 <p className="mt-1.5 font-heading text-[15px] font-semibold leading-snug text-white">
