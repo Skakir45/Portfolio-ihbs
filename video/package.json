@@ -6,7 +6,9 @@
     "studio": "remotion studio",
     "render": "remotion render IhbsPromo out/ihbs-promo.mp4",
     "render:vertical": "remotion render IhbsPromoVertical out/ihbs-promo-vertical.mp4",
-    "render:sheru": "remotion render SheruBhaiIHBS out/sheru-bhai-ihbs-malayalam.mp4"
+    "render:sheru": "remotion render SheruBhaiIHBS out/sheru-bhai-ihbs-malayalam.mp4",
+    "render:ad50": "remotion render SheruIHBSAd50 out/ihbs-sheru-bhai-ad-50s.mp4",
+    "audio:ad50": "python3 scripts/make_ad50_audio.py out/ad50-audio && ffmpeg -y -i out/ad50-audio/music.wav -b:a 160k public/ad50/music.mp3 && ffmpeg -y -i out/ad50-audio/sfx.wav -b:a 160k public/ad50/sfx.mp3"
   },
   "dependencies": {
     "@fontsource/baloo-chettan-2": "^5.3.0",
