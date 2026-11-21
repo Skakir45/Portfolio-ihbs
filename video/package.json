@@ -5,9 +5,12 @@
   "scripts": {
     "studio": "remotion studio",
     "render": "remotion render IhbsPromo out/ihbs-promo.mp4",
-    "render:vertical": "remotion render IhbsPromoVertical out/ihbs-promo-vertical.mp4"
+    "render:vertical": "remotion render IhbsPromoVertical out/ihbs-promo-vertical.mp4",
+    "render:sheru": "remotion render SheruBhaiIHBS out/sheru-bhai-ihbs-malayalam.mp4"
   },
   "dependencies": {
+    "@fontsource/baloo-chettan-2": "^5.3.0",
+    "@fontsource/noto-sans-malayalam": "^5.3.0",
     "@remotion/cli": "4.0.545",
     "react": "19.2.0",
     "react-dom": "19.2.0",

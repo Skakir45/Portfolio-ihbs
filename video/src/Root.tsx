@@ -1,5 +1,6 @@
 import { Composition } from "remotion";
 import { IhbsPromo, promoSchemaDefaults } from "./IhbsPromo";
+import { FPS, SheruPromo, sheruDefaults } from "./sheru/SheruPromo";
 
 export const RemotionRoot = () => (
   <>
@@ -9,5 +10,8 @@ export const RemotionRoot = () => (
     {/* 9:16 for Reels / TikTok / Shorts */}
     <Composition id="IhbsPromoVertical" component={IhbsPromo} durationInFrames={360}
       fps={30} width={1080} height={1920} defaultProps={promoSchemaDefaults} />
+    {/* 2-minute Malayalam "Sheru Bhai" marketing reel, 9:16 */}
+    <Composition id="SheruBhaiIHBS" component={SheruPromo} durationInFrames={120 * FPS}
+      fps={FPS} width={1080} height={1920} defaultProps={sheruDefaults} />
   </>
 );
